@@ -22,7 +22,7 @@ A voice controlled life automation hub, most commonly powered by the Raspberry P
 ## Installation
 Quick installation for the Raspberry Pi 2+
 ```
-curl -sL https://raw.githubusercontent.com/evancohen/smart-mirror/master/scripts/pi-install.sh | bash
+curl -sL https://raw.githubusercontent.com/Daveladd/smart-mirror/master/scripts/pi-install.sh | bash
 ```
 
 ## [Documentation](http://docs.smart-mirror.io)
