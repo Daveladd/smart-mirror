@@ -131,22 +131,22 @@ else
 fi
 
 # Apply LXDE unclutter autostart (if we haven't already)
-if ! sudo grep -q '(smart-mirror)' /etc/xdg/lxsession/LXDE/autostart; then
+if ! sudo grep -q '(smart-mirror)' /etc/xdg/lxsession/LXDE-pi/autostart; then
     sudo sed -i -e '$a\
 \
 #Hide the mouse when inactive (smart-mirror)\
-unclutter -idle 0.1 -root' /etc/xdg/lxsession/LXDE/autostart
+unclutter -idle 0.1 -root' /etc/xdg/lxsession/LXDE-pi/autostart
 fi
 
 # Disable the screensaver (if we haven't already)
-if ! grep -q '(smart-mirror)' ~/.config/lxsession/LXDE-pi/autostart; then
+if ! grep -q '(smart-mirror)' /etc/xdg/lxsession/LXDE-pi/autostart; then
     sed -i -e '$a\
 \
 #Disable screen saver (smart-mirror)\
 @xset s 0 0\
 @xset s noblank\
 @xset s noexpose\
-@xset dpms 0 0 0' ~/.config/lxsession/LXDE-pi/autostart
+@xset dpms 0 0 0' ~/etc/xdg/lxsession/LXDE-pi/autostart
 fi
 
 # Add start commands in the user's bashrc.
