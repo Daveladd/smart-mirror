@@ -112,13 +112,68 @@
         },
         "video_search": {
             "text": "Show me ________",
-            "voice": "show me (a video)(of)(about) *query",
+            "voice": "show (me) (us) (a video)(of)(about) *query",
             "description": "Will show you a video of the requested item."
+        },
+        "video_pause": {
+            "text": "Pause video",
+            "voice": "pause (the) video",
+            "description": "Pauses the playback of video content."
+        },
+        "video_play": {
+            "text": "Play video",
+            "voice": "play (the) video",
+            "description": "Starts the playback of video content."
+        },
+        "previous_video": {
+            "text": "previous video",
+            "voice": "play (the) last video",
+            "description": "replay the last video content."
+        },
+        "video_rewind": {
+            "text": "rewind video",
+            "voice": "rewind",
+            "description": "rewind the video 30 seconds."
         },
         "video_stop": {
             "text": "Stop video",
             "voice": "stop (the) video",
             "description": "Stops the playback of video content."
+        },
+        "set_volume": {
+            "text": "Volume ________",
+            "voice": "(set) (turn) (the) volume (to) *percent",
+            "description": "Set Volume to specified %"
+        },
+        "volume_max": {
+            "text": "volume max",
+            "voice": "(turn) (the) volume (to) max",
+            "description": "Turns volume up to 100%."
+        },
+        "volume_half": {
+            "text": "volume 50%",
+            "voice": "(turn) (the) volume (to) 50%",
+            "description": "Turns volume to 50%."
+        },
+        "volume_up": {
+            "text": "volume up",
+            "voice": "(turn) (the) volume up",
+            "description": "Turns volume up 10%."
+        },
+        "volume_down": {
+            "text": "volume down",
+            "voice": "(turn) (the) volume down",
+            "description": "Turns volume down 10%."
+        },
+        "mute": {
+            "text": "mute",
+            "voice": "mute",
+            "description": "Mutes sound"
+        },
+        "un_mute": {
+            "text": "unmute",
+            "voice": "(turn) (the) sound on",
+            "description": "Un-Mutes sound"
         },
         "image_giphy": {
             "text": "Giphy ________",
