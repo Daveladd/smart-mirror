@@ -28,7 +28,8 @@ function Search($scope, $http, SpeechService, $rootScope, Focus) {
 		var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
 		iframe.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 	}
-
+	$scope.previousVideo = "XHDRfSjo58A";
+	$scope.currentVideo = "XHDRfSjo58A";
 	var rewindVideo = function() {
 		var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
 		iframe.postMessage('{"event":"command","func":"' + 'seekTo' + '","args":[0, true]}', '*');
@@ -41,7 +42,7 @@ function Search($scope, $http, SpeechService, $rootScope, Focus) {
 		searchYouTube(query).then(function (results) {
             //Set cc_load_policy=1 to force captions
             var randomNumber = Math.floor(Math.random() * 26);
-			$scope.video = 'https://www.youtube.com/embed/' + results.data.items[0].id.videoId + '?autoplay=1&controls=0&iv_load_policy=3&enablejsapi=1&showinfo=0&rel=0';
+			$scope.video = 'https://www.youtube.com/embed/' + results.data.items[randomNumber].id.videoId + '?autoplay=1&controls=0&iv_load_policy=3&enablejsapi=1&showinfo=0&rel=0';
 			console.log($scope.currentVideo);
 			Focus.change("video");
 		});
@@ -62,7 +63,6 @@ function Search($scope, $http, SpeechService, $rootScope, Focus) {
 		pauseVideo();
 		console.log($scope.previousVideo);
 	});
-
     //Stop video
 	SpeechService.addCommand('video_stop', function () {
 		Focus.change("default");
