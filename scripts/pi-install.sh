@@ -112,7 +112,7 @@ fi
 
 # Getting the code
 printf "%s\n${blu}Cloning smart-mirror Git Repo${end}\n"
-if git clone https://github.com/evancohen/smart-mirror.git; then
+if git clone https://github.com/Daveladd/smart-mirror.git; then
     printf "%s${grn}smart-mirror code is now downloaded${end}\n"
 else
     printf "%s${red}Unable to clone smart-mirror :( ${end}\n"
