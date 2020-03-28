@@ -63,6 +63,7 @@
     </div>
     <div class="bottom-center">
       <!-- Command list -->
+      <div ng-include="'plugins/volume/index.html'"></div>
       <div ng-include="'plugins/commands/index.html'"></div>
       <div ng-include="'plugins/rss/index.html'"></div>
 
@@ -99,6 +100,8 @@
   <!-- endbower -->
 
   <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angularjs-gauge/dist/angularjs-gauge.min.js"></script>
 
   <!-- App -->
   <script src="app/js/app.js"></script>
@@ -117,6 +120,7 @@
   <script src="plugins/scrobbler/service.js"></script>
   <script src="plugins/timer/service.js"></script>
   <script src="plugins/todoist/service.js"></script>
+  <script src="plugins/volume/service.js"></script>
 
   <!-- Controllers -->
   <script src="app/js/controller.js"></script>
