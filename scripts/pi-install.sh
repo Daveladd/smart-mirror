@@ -98,7 +98,6 @@ if $NODE_INSTALL; then
 	printf "%sInstalling Node...\n"
 	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_VERSION | sudo -E bash -
 	sudo apt-get install -y nodejs
-	npm install node-cmd
 	printf "%sNode installation complete.\n"
 fi
 
