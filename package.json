@@ -40,6 +40,9 @@
     "wiredep-cli": "^0.1.0"
   },
   "dependencies": {
+    "angular": "1.5.0",
+    "node-cmd": "3.0.0",
+    "angularjs-gauge": "2.2.0",
     "@google-cloud/speech": "^2.1.2",
     "alphavantage": "^1.2.0",
     "angular-moment": "^1.0.1",
