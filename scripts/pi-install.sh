@@ -70,7 +70,7 @@ printf "%s${red}Please do not exit this script until it is complete.${end}\n"
 
 # Install native dependencies
 printf "%s\n${blu}Installing native dependencies${end}\n"
-sudo apt-get install -y curl wget git sox unclutter libatlas-base-dev node-cmd
+sudo apt-get install -y curl wget git sox unclutter libatlas-base-dev node-cmd npm libxss1
 
 # Check if we need to install or upgrade Node.js.
 printf "%s\n${blu}Checking current Node installation${end}\n"
@@ -112,7 +112,7 @@ fi
 
 # Getting the code
 printf "%s\n${blu}Cloning smart-mirror Git Repo${end}\n"
-if git clone https://github.com/evancohen/smart-mirror.git; then
+if git clone https://github.com/Daveladd/smart-mirror.git; then
     printf "%s${grn}smart-mirror code is now downloaded${end}\n"
 else
     printf "%s${red}Unable to clone smart-mirror :( ${end}\n"
