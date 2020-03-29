@@ -1,5 +1,10 @@
 function Timer($scope, TimerService, SpeechService, Focus) {
 
+	$scope.playAudio = function() {
+        var audio = new Audio('dixie-horn.mp3');
+        audio.play();
+    };
+
     // Start timer
 	SpeechService.addCommand('timer_start', function (duration) {
 		console.debug("Starting timer");
@@ -9,6 +14,7 @@ function Timer($scope, TimerService, SpeechService, Focus) {
 
 		$scope.$watch('timer.countdown', function (countdown) {
 			if (countdown === 0) {
+				$scope.playAudio()
 				TimerService.stop();
                 // defaultView();
 			}
