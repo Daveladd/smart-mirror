@@ -16,7 +16,7 @@ function Timer($scope, TimerService, SpeechService, Focus) {
 			if (countdown === 0) {
 				$scope.playAudio();
 				TimerService.stop();
-                // defaultView();
+                defaultView();
 			}
 		});
 	});
