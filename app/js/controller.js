@@ -90,6 +90,12 @@
 				$scope.partialResult = translation;
 			});
 		};
+		var images = ['app/css/background_1.jpg','app/css/background_2.jpg','app/css/background_3.jpg','app/css/background_5.jpg','app/css/background_6.jpg','app/css/background_9.jpg'];
+			var backgroundSlideShow = function () {
+				var url = images[Math.floor(Math.random() * images.length)];
+				document.body.style.background = `#000000 url(${url}) no-repeat fixed center`;
+			};
+			$interval(backgroundSlideShow, 300000);
 		$scope.Value = 0;
 		$scope.threshold = {
             		'0': { color: 'blue' },
