@@ -262,7 +262,7 @@
 			var un_mute = function() {
 				// $scope.cmd.run('pactl -- set-sink-mute 0 0');
 				$scope.cmd.run('amixer sset PCM,0 unmute');
-				$timeout(getVolume, 5000);
+				$timeout(muteCheck, 5000);
 			}
 
 			SpeechService.addCommand('un_mute', function () {
