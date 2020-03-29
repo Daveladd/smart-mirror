@@ -2,6 +2,7 @@ function Timer($scope, TimerService, SpeechService, Focus) {
 
 	$scope.playAudio = function() {
         var audio = new Audio('dixie-horn.mp3');
+        audio.load();
         audio.play();
     };
 
@@ -14,7 +15,7 @@ function Timer($scope, TimerService, SpeechService, Focus) {
 
 		$scope.$watch('timer.countdown', function (countdown) {
 			if (countdown === 0) {
-				$scope.playAudio()
+				$scope.playAudio();
 				TimerService.stop();
                 // defaultView();
 			}
