@@ -6,6 +6,7 @@
 		SpeechService,
 		AutoSleepService,
 		LightService,
+		VolumeService,
 		$rootScope, $scope, $timeout, $interval, tmhDynamicLocale, $translate) {
 
 		// Local Scope Vars
@@ -89,6 +90,33 @@
 				$scope.partialResult = translation;
 			});
 		};
+		$scope.Value = 0;
+		$scope.threshold = {
+            		'0': { color: 'blue' },
+			'20': { color: 'green'},
+			'40': { color: 'yellow'},
+            		'60': {color: 'orange' },
+			'70': {color: 'purple'},
+            		'80': {color: 'fuchsia'},
+			'90': {color: 'crimson'}
+       		};
+		
+			
+			function getValue() {
+				var cmd=require('node-cmd');
+				cmd.get(
+// 					"echo `(pactl list sinks | grep 'Volume: 0:')| awk '{gsub("%","");print $3}'`",
+        				// "echo `(pactl list sinks | grep 'Volume: 0:')| awk '{print $3}'`",
+        				"echo `amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]'`",
+        				function(err, data, stderr){
+            					console.log('the system volume is : ',data)
+						var edit = data.toString().replace("%","");
+						var result = parseInt(edit);
+						$scope.Value = result;
+        				}
+    				);
+			}
+			getValue();
 
 		_this.init = function () {
 			AutoSleepService.startAutoSleepTimer();
