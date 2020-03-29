@@ -149,6 +149,98 @@
 					}
 				}
 			})
+			$scope.cmd=require('node-cmd');
+			var getVolume = function() {		
+				$scope.cmd.get(
+// 					"echo `(pactl list sinks | grep 'Volume: 0:')| awk '{gsub("%","");print $3}'`",
+        				// "echo `(pactl list sinks | grep 'Volume: 0:')| awk '{print $3}'`",
+        				"echo `amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]'`",
+        				function(err, data, stderr){
+            					console.log('the system volume is : ',data)
+						var edit = data.toString().replace("%","");
+						var result = parseInt(edit);
+						$scope.Value = result;
+        				}
+    				);
+			}
+			var muteCheck = function() {
+				if ($scope.cmd.run("amixer get PCM | awk '$0~/%/{print $6}' | tr -d '[]' == 'on'")) {
+ 				// if ($scope.cmd.run("awk '/muted/ {print $2}' <(pacmd list-sinks) == 'yes'")) {
+             				$scope.Value = 0;
+         			} else {
+             				console.log("not muted");
+         			}
+ 			};
+			
+			SpeechService.addCommand('set_volume', function (percent) {
+				// $scope.cmd.run("pactl -- set-sink-volume 0 " + percent);
+				$scope.cmd.run("amixer sset PCM,0 " + percent);
+				$timeout(getVolume, 5000);
+				console.log("amixer sset PCM,0 " + percent);
+			});
+			
+		
+			var volumeMax = function() {
+				$scope.cmd.run("amixer sset PCM,0 100%");
+			}
+
+			SpeechService.addCommand('volume_max', function () {
+				volumeMax();
+				$timeout(getVolume, 5000);
+				console.log("volume 100%");
+			});
+			var volumeHalf = function() {
+				$scope.cmd.run("amixer sset PCM,0 50%");
+			}
+
+			SpeechService.addCommand('volume_half', function () {
+				volumeHalf();
+				$timeout(getVolume, 5000);
+				console.log("volume 50%");
+			});
+			var volumeUp = function() {
+				// $scope.cmd.run('pactl -- set-sink-volume 0 +10%');
+				$scope.cmd.run("amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')+10]%");
+// 				$scope.cmd.run("amixer -q set 'Master' 10%+");
+			}
+
+			SpeechService.addCommand('volume_up', function () {
+				volumeUp();
+				$timeout(getVolume, 5000);
+				console.log("volume up");
+			});
+			var volumeDown = function() {
+				// $scope.cmd.run('pactl -- set-sink-volume 0 -10%');
+				$scope.cmd.run("amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')-10]%");
+// 				$scope.cmd.run("amixer -D pulse set 'Master' 10%-");
+			}
+
+			SpeechService.addCommand('volume_down', function () {
+				volumeDown();
+				$timeout(getVolume, 5000);
+				console.log("volume down");
+			});
+			var mute = function() {
+				// $scope.cmd.run('pactl -- set-sink-mute 0 1');
+				$scope.cmd.run('amixer sset PCM,0 mute');
+				$timeout(muteCheck, 5000);
+			}
+			
+
+			SpeechService.addCommand('mute', function () {
+				mute();
+				console.log("muted");
+			});
+			var un_mute = function() {
+				// $scope.cmd.run('pactl -- set-sink-mute 0 0');
+				$scope.cmd.run('amixer sset PCM,0 unmute');
+				$timeout(getVolume, 5000);
+			}
+
+			SpeechService.addCommand('un_mute', function () {
+				un_mute();
+				console.log("unmuted");
+			});
 
 			// Go back to default view
 			SpeechService.addCommand('home', defaultView);
