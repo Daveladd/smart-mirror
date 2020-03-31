@@ -141,8 +141,8 @@
             "description": "Stops the playback of video content."
         },
         "set_volume": {
-            "text": "Volume ________",
-            "voice": "(set) (turn) (the) volume (to) *percent",
+            "text": "Turn Volume to ________",
+            "voice": "(set) turn (the) volume (to) *percent",
             "description": "Set Volume to specified %"
         },
         "volume_max": {
