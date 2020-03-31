@@ -156,13 +156,13 @@
             "description": "Turns volume to 50%."
         },
         "volume_up": {
-            "text": "volume up",
-            "voice": "(turn) (the) volume up",
+            "text": "sound up",
+            "voice": "(turn) (the) sound up",
             "description": "Turns volume up 10%."
         },
         "volume_down": {
-            "text": "volume down",
-            "voice": "(turn) (the) volume down",
+            "text": "sound down",
+            "voice": "(turn) (the) sound down",
             "description": "Turns volume down 10%."
         },
         "mute": {
