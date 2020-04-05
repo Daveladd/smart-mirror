@@ -234,7 +234,7 @@
 			});
 			var volumeUp = function() {
 				// $scope.cmd.run('pactl -- set-sink-volume 0 +10%');
-				$scope.cmd.run("amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')+10]%");
+				$scope.cmd.run("sudo amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')+10]%");
 // 				$scope.cmd.run("amixer -q set 'Master' 10%+");
 			}
 
@@ -245,7 +245,7 @@
 			});
 			var volumeDown = function() {
 				// $scope.cmd.run('pactl -- set-sink-volume 0 -10%');
-				$scope.cmd.run("amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')-10]%");
+				$scope.cmd.run("sudo amixer set PCM -- $[$(amixer get PCM|grep -o [0-9]*%|sed 's/%//')-10]%");
 // 				$scope.cmd.run("amixer -D pulse set 'Master' 10%-");
 			}
 
