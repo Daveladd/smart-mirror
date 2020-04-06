@@ -141,8 +141,8 @@
             "description": "Stops the playback of video content."
         },
         "set_volume": {
-            "text": "Turn Volume to ________",
-            "voice": "(set) turn (the) volume (to) *percent",
+            "text": "Set Volume to ________",
+            "voice": "set (the) volume (to) *percent",
             "description": "Set Volume to specified %"
         },
         "volume_max": {
@@ -156,14 +156,14 @@
             "description": "Turns volume to 50%."
         },
         "volume_up": {
-            "text": "sound up",
-            "voice": "(turn) (the) sound up",
-            "description": "Turns volume up 10%."
+            "text": "Volume up",
+            "voice": "turn (the) volume up",
+            "description": "Turns volume up 10dB."
         },
         "volume_down": {
-            "text": "sound down",
-            "voice": "(turn) (the) sound down",
-            "description": "Turns volume down 10%."
+            "text": "Volume down",
+            "voice": "turn (the) volume down",
+            "description": "Turns volume down 10dB."
         },
         "mute": {
             "text": "mute",
