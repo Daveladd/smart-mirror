@@ -301,7 +301,7 @@
             "description": "Show the local IP of the Remote App URL"
         },
         "todoist_show": {
-            "text": "Show (my) ________ list",
+            "text": "Chores (my) ________ (list)",
             "voice": "Show (my) *project list",
             "description": "Show requested list."
         },
