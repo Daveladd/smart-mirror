@@ -112,7 +112,7 @@
         },
         "video_search": {
             "text": "Show me ________",
-            "voice": "show (me) (us) (a video)(of)(about) *query",
+            "voice": "show (me) (us) (a video) (of) (about) *query",
             "description": "Will show you a video of the requested item."
         },
         "video_pause": {
@@ -301,7 +301,7 @@
             "description": "Show the local IP of the Remote App URL"
         },
         "todoist_show": {
-            "text": "Chores (my) ________ (list)",
+            "text": "Show (my) ________ list",
             "voice": "Show (my) *project list",
             "description": "Show requested list."
         },
